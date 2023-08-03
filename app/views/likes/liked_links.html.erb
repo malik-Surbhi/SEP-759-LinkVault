@@ -1,0 +1,26 @@
+<h1>Links Liked by <%= current_user.username %></h1>
+
+
+<% @liked_links.each do |link| %>
+  <div>
+    <%= link_to link.title, link %>
+  </div>
+<% end %>
+
+<%# if @liked_links.any? %>
+<!--  <ul>-->
+    <%# @liked_links.each do |link| %>
+<!--      <li><%#= link_to link.title, link %></li>-->
+    <%# end %>
+    <%# @liked_links.each do |link| %>
+      <%# if link %>
+<!--        <li><%#= link_to link.title, link %></li>-->
+      <%# else %>
+<!--        <li>Link not found</li>-->
+      <%# end %>
+    <%# end %>
+<!--  </ul>-->
+<%# else %>
+<!--  <p>No liked links yet.</p>-->
+<%# end %>
+
