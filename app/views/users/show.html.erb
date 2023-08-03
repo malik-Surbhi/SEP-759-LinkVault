@@ -1,0 +1,41 @@
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="user-container">
+  <div class="profile-photo-block">
+    <div class="image-box">
+      <h1><%= @user.username %></h1>
+    </div>
+    <div class="img-container">
+      <%= image_tag url_for(@user.profile_photo), alt: "Profile Photo", class: 'user-profile-img' %>
+    </div>
+  </div>
+  <div class="user-details">
+    <div class="user-details-element">
+      <img src="<%= image_url('profile.png') %>", class="user-icons"/>
+      <%= @user.username %></span></p>
+    </div>
+    <hr class="detail-separator">
+    <div class="user-details-element">
+      <img src="<%= image_url('email.png') %>", class="user-icons"/>
+      <%= @user.email %></p>
+    </div>
+    <hr class="detail-separator">
+    <div class="user-details-element">
+      <img src="<%= image_url('bio.png') %>", class="user-icons"/>
+      <%= @user.bio %></p>
+    </div>
+    <hr class="detail-separator">
+
+    <div class="edit-profile">
+      <%= link_to "Edit Profile", edit_user_path, class: "edit-profile-button" %>
+    </div>
+  </div>
+
+</div>

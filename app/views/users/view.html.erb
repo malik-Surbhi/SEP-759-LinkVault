@@ -1,0 +1,40 @@
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="user-table-container">
+  <h1>User Details</h1>
+
+  <table class="user-table">
+    <tr class="">
+      <th>Profile Photo</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Bio</th>
+      <th>Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="icon-align"><%= image_tag url_for(user.profile_photo), alt: "avatar#user", class: "avatar user-icon" %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.bio %></td>
+        <td>
+          <% if current_user.admin? %>
+            <% if user.admin? %>
+              <%= button_to 'Revoke Rights', update_role_user_path(user), method: :patch, class: 'admin-button not-admin' %>
+            <% else %>
+              <%= button_to 'Make Admin', update_role_user_path(user), method: :patch, class: 'admin-button admin' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

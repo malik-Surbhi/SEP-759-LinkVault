@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="flash-div">
+    <%= render 'shared/flash' %>
+  </div>
+  <div class="login-container">
+    <div class="login-content">
+      <h1 class="welcome-text">Welcome To LinkVault</h1>
+      <%= form_with(model: User.new, url: sessions_path) do |f| %>
+        <%= f.text_field :username, placeholder: 'Username', class: 'input-field' %>
+        <%= f.password_field :password, placeholder: 'Password', class: 'input-field' %>
+        <%= link_to 'Register', register_path, class: 'register-link' %>
+        <%= f.submit "Login", class: 'login-button' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

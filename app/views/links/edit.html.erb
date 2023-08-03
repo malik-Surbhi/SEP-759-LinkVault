@@ -1,0 +1,33 @@
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="create-link-form">
+  <h1>Edit Details</h1>
+  <%= form_with(model: @link, url: link_path(@link), method: :patch) do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "title #{'field_with_errors' if @link.errors[:title].any?}", placeholder: 'Type in your title..' %>
+      <% if @link.errors.include?(:title) %>
+        <p class="error-message"><%= @link.errors[:title].first %></p>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :url %>
+      <%= f.text_field :url, class: "url #{'field_with_errors' if @link.errors[:url].any?}", placeholder: 'Enter the URL of your link' %>
+      <% if @link.errors.include?(:title) %>
+        <p class="error-message"><%= @link.errors[:url].first %></p>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'description', placeholder: 'Enter the Description for your link!' %>
+    </div>
+    <%= f.submit "Update Link", class: 'create-link-button' %>
+  <% end %>
+</div>

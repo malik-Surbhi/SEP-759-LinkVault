@@ -1,0 +1,208 @@
+.user-container {
+    margin: 2rem auto 0 auto;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    color: #555555;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.profile-photo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-box {
+    height: 10rem;
+    width: 100%;
+    background-image: linear-gradient(to right top, #f6ddeb, #f1daee, #e9d8f2, #e0d7f5, #d4d6f8, #cbd9fa, #c3dcfb, #bcdffa, #bce5f8, #bfe9f4, #c5edf1, #cef1ee);
+    margin-top: 0;
+    /*margin-left: -2rem;*/
+    border-top-color: white;
+    text-align: center;
+}
+
+.image-box h1 {
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+.user-details {
+    text-align: center;
+    padding: 0 2rem 2rem;
+}
+
+.user-icons {
+    height: 20px;
+    margin-top: 2px;
+    margin-right: 7rem;
+}
+
+.user-profile-img {
+    margin-bottom: 38px;
+    border-radius: 50%;
+    border: 2px solid #666666;
+    height: 9rem;
+    width: 9rem;
+    margin-top: -2rem;
+    background-color: white;
+}
+
+.user-details-element {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: 2px 0;
+}
+
+.detail-separator {
+    margin-bottom: 16px;
+}
+
+.edit-profile {
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #666;
+    border-radius: 18px;
+    padding: 8px 24px;
+    font-weight: 600;
+    background-image: linear-gradient(to right top, #f6ddeb, #f1daee, #e9d8f2, #e0d7f5, #d4d6f8, #cbd9fa, #c3dcfb, #bcdffa, #bce5f8, #bfe9f4, #c5edf1, #cef1ee);
+    display: inline-block;
+}
+
+
+.edit-profile-button {
+    text-decoration: none;
+    color: #666666;
+    white-space: nowrap;
+}
+
+/*----------------------------------Edit Page CSS-----------------------------------*/
+
+.edit-container {
+    margin: 1rem auto 0 auto;
+    padding: 30px;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.edit-container label {
+    font-size: 14px;
+    color: #555555;
+    cursor: pointer;
+}
+
+.edit-container input, textarea {
+    margin:15px 0;
+    padding:15px 10px;
+    width:100%;
+    outline:none;
+    border:1px solid #bbb;
+    border-radius:20px;
+    display:inline-block;
+    box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -ms-transition:0.2s ease all;
+    -o-transition:0.2s ease all;
+    transition:0.2s ease all;
+}
+
+.edit-container input:focus {
+    border-color:cornflowerblue;
+}
+
+.edit-container h1 {
+    color: #444444;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.update-profile-button {
+    color: darkcyan;
+    width: 6rem;
+}
+
+.edit-container input[type=submit] {
+    padding:15px 50px;
+    width:auto;
+    background:#1abc9c;
+    border:none;
+    color:white;
+    cursor:pointer;
+    display:inline-block;
+    clear:right;
+    margin: 15px 112px;
+    -webkit-transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -ms-transition:0.2s ease all;
+    -o-transition:0.2s ease all;
+    transition:0.2s ease all;
+}
+
+.edit-container input[type=submit]:hover {
+    opacity:0.8;
+}
+
+.edit-container input[type="submit"]:active {
+    opacity:0.4;
+}
+
+.profile-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    border: 2px solid #666666;
+    height: 9rem;
+    width: 9rem;
+    margin-top: -2rem;
+    background-color: white;
+}
+
+.edit-container input[type=file] {
+    padding:10px 35px;
+    width:auto;
+    background: #e9d8f2;
+    cursor:pointer;
+    display:inline-block;
+    clear:right;
+    margin: 10px 112px 30px 112px;
+    -webkit-transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -ms-transition:0.2s ease all;
+    -o-transition:0.2s ease all;
+    transition:0.2s ease all;
+    color: #444444;
+}
+
+.link-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.link-table td {
+    /*border: 1px solid #dddddd;*/
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.link-table td.detail-text {
+    text-align: left;
+}
+
+.user-table-container h3 {
+    color: darkgoldenrod;
+}

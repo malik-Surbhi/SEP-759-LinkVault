@@ -1,0 +1,128 @@
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.dropdown-menu {
+    padding: .7rem 0rem;
+    font-size: .875rem;
+    line-height: 22px;
+    color: #666666;
+    border: 1px white solid;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+    border-radius: .5rem;
+    background-color: white;
+}
+.dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 200;
+    transition: all 0.3s ease-in;
+}
+
+.dropdown:hover > .dropdown-menu {
+    transform: translateY(8px);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (min-width: 990px) {
+    .dropright-lg {
+        position: relative;
+    }
+
+    .dropright-lg .dropdown-menu {
+        top: 0;
+        right: auto;
+        left: 100%;
+        margin-top: 0;
+        margin-right: 0.125rem;
+    }
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: ">";
+    border-top: 0rem;
+    border-right: 0rem;
+    border-bottom: 0;
+    border-left: 0rem;
+    float: right;
+
+}
+
+.hamburger {
+    width: 56px;
+    height: 56px;
+    opacity: 0.6;
+}
+
+.hamburger:hover {
+    opacity: 1;
+}
+
+.hamburger img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.dropdown-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.dropdown-menu .separator {
+    width: 100%;
+    height: 1px;
+    background-color: #CCCCCC;
+    margin: 0.3rem 0;
+}
+
+.dropdown-menu .menu-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.25rem 1.5rem;
+}
+
+.dropdown-menu .menu-item  h6{
+    margin: 0;
+    padding: 0;
+}
+
+.icons {
+    height: 10px;
+    margin-top: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.dropdown-menu .menu-item .link-to {
+    text-decoration: none;
+    color: #666666;
+}
+
+.dropdown-menu .menu-item:hover .link-to {
+    text-decoration: none;
+    color: darkcyan;
+}
+
+.logout {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+

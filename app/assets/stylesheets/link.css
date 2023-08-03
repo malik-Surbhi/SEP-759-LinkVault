@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-family: "Poppins", Sans-Serif;
+}
+
+body {
+    background: linear-gradient(
+            45deg,
+            hsla(242, 58%, 73%, 1) 0%,
+            hsla(157, 72%, 82%, 1) 100%
+    )
+    fixed hsla(242, 58%, 73%, 1);
+}
+
+.root {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.avatar-container {
+    margin-top: 50px;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.dp {
+    width: 150px;
+    height: 150px;
+}
+
+.user {
+    text-align: center;
+    width: 100vw;
+    margin-top: 1em;
+}
+
+.parent-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.user-name {
+    text-align: center;
+    display: block;
+    margin-top: 2px;
+}
+
+.social-url {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 15px;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.link {
+    text-decoration: none;
+    color: mintcream;
+}
+
+@media (min-width: 600px) {
+    .social-url {
+        box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 6rem;
+    margin-top: 3rem;
+    margin-right: 3rem;
+}
+
+.home-link {
+    text-decoration: none;
+    margin-left: 35px;
+    color: #444444;
+}
+
+.new-link {
+    text-align: center;
+    font-size: 18px;
+    margin: 2rem 52rem;
+    border: 1px solid #fff;
+    border-radius: 18px;
+    padding: 8px;
+    font-weight: 600;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.new-link-text {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.show-more-img {
+    height: 2rem;
+    margin-right: 20rem;
+    margin-top: 2rem;
+    margin-left: 11rem;
+}
+
+.show-more-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.show-more-tooltip .show-more-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #444444;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.show-more-tooltip:hover .show-more-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+/* Adding css for new link creation page*/
+
+.create-link-form {
+    margin: 2rem auto 0 auto;
+    padding: 30px;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.create-link-form label {
+    font-size: 14px;
+    color: #555555;
+    cursor: pointer;
+}
+
+.create-link-form input, textarea {
+    margin:15px 0;
+    padding:15px 10px;
+    width:100%;
+    outline:none;
+    border:1px solid #bbb;
+    border-radius:20px;
+    display:inline-block;
+    box-sizing:border-box;
+    /*-webkit-transition:0.2s ease all;*/
+    /*-moz-transition:0.2s ease all;*/
+    /*-ms-transition:0.2s ease all;*/
+    /*-o-transition:0.2s ease all;*/
+    transition:0.2s ease all;
+}
+
+.create-link-form input:focus {
+    border-color:cornflowerblue;
+}
+
+.create-link-form h1 {
+    color: #444444;
+    text-align: center;
+}
+
+.create-link-button {
+    color: darkcyan;
+    width: 6rem;
+}
+
+.create-link-form input[type=submit] {
+    padding:15px 50px;
+    width:auto;
+    background:#1abc9c;
+    border:none;
+    color:white;
+    cursor:pointer;
+    display:inline-block;
+    clear:right;
+    margin: 15px 112px;
+    -webkit-transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -ms-transition:0.2s ease all;
+    -o-transition:0.2s ease all;
+    transition:0.2s ease all;
+}
+
+.create-link-form input[type=submit]:hover {
+    opacity:0.8;
+}
+
+.create-link-form input[type="submit"]:active {
+    opacity:0.4;
+}
+
+
+/* Adding css for Show link  page*/
+
+.link-container {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.link-details {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.link-details h1 {
+    color: chocolate;
+}
+
+.link-details p {
+    text-align: justify;
+    margin-left: 3rem;
+    color: #444444;
+}
+
+@media (min-width: 600px) {
+    .link-details {
+        margin-left: 30rem;
+        margin-right: 30rem;
+        box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+    }
+}
+
+.img-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.edit-img, .delete-img {
+    height: 1.5rem;
+    margin: 0 3px 0 3px;
+}
+
+.delete-img {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 9px;
+    cursor: pointer;
+
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 90px;
+    background-color: #444444;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    margin-left: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-top:2px;
+}
+
+.tooltip .edit-tooltip-text {
+    visibility: hidden;
+    width: 90px;
+    background-color: #444444;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    margin-left: -120px;
+    height: 17px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+.tooltip:hover .tooltip-text, .tooltip:hover .edit-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.like-button {
+    background: transparent;
+    border: none;
+    padding: 0 0 0.5rem 1rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.like-tooltip {
+    position: relative;
+}
+
+.like-tooltip .like-tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    background-color: #444444;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 4px 24px 4px 13px;
+    margin-left: 7px;
+    margin-bottom: -24px;
+    width: 70%;
+}
+
+.like-tooltip:hover .like-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

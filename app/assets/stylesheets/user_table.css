@@ -1,0 +1,62 @@
+.user-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-table  {
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.user-table tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+.user-table th {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user-table td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.user-table td {
+    box-shadow: 0px 23px 15px 0px rgba(0,0,0,0.1);
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.admin-button {
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #fff;
+    border-radius: 18px;
+    padding: 8px;
+    font-weight: 600;
+    box-shadow: 20px 23px 15px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.not-admin {
+    color: indianred;
+}
+
+.admin {
+    color: darkcyan;
+}
+
+
+.user-table td.icon-align {
+    text-align: center;
+}

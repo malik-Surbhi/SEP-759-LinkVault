@@ -1,0 +1,52 @@
+<header class="header">
+  <%= link_to "Back", links_path, class: "home-link" %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="register-user-form">
+  <div class="register-container">
+      <h1>Register as a new User!</h1>
+      <%= form_with(model:@user, url: users_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: "username register-input #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Type in your username..' %>
+          <% if @user.errors.include?(:username) %>
+            <p class="error-message"><%= @user.errors[:username].first %></p>
+          <% end %>
+        </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "email register-input #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Enter your email..' %>
+        <% if @user.errors.include?(:email) %>
+          <p class="error-message"><%= @user.errors[:email].first %></p>
+        <% end %>
+      </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "password register-input #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Type in your password..' %>
+          <% if @user.errors.include?(:password) %>
+            <p class="error-message"><%= @user.errors[:password].first %></p>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "password_confirmation register-input #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Confirm your password..' %>
+          <% if @user.errors.include?(:password_confirmation) %>
+            <p class="error-message"><%= @user.errors[:password_confirmation].second %></p>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :bio %>
+          <%= f.text_area :bio, class: 'bio register-input', placeholder: 'Enter the bio for your account!' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :profile_photo, "Upload Profile Photo" %>
+          <%= f.file_field :profile_photo, class: 'photo-button register-input' %>
+        </div>
+        <%= f.submit "Register", class: 'register-button' %>
+      <% end %>
+  </div>
+</div>

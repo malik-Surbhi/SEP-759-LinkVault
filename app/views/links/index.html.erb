@@ -1,0 +1,56 @@
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="root">
+
+  <div class="avatar-container">
+
+      <%= image_tag url_for(current_user.profile_photo), alt: "avatar#user", class: "avatar dp" %>
+
+  </div>
+
+  <div class="user">
+    <h2 class="user-name"><%= current_user.username %></h2>
+  </div>
+
+  <nav class="filter-nav">
+    <label for="touch"><span class="filter-label social-url">Filter</span></label>
+    <input type="checkbox" id="touch">
+    <ul class="slide">
+      <li class="link-to">
+        <%= link_to "All Links", links_path, class: "dropdown-item", id: "likeFilterDropdown", data: { likeStatus: "all" } %>
+      </li>
+      <li class="link-to">
+        <%= link_to "Fav Links", links_path(like_status: "liked"), class: "dropdown-item", id: "likeFilterDropdown", data: { likeStatus: "liked" } %>
+      </li>
+      <li class="link-to">
+        <%= link_to "Not Fav Links", links_path(like_status: "not_liked"), class: "dropdown-item", id: "likeFilterDropdown", data: { likeStatus: "not_liked" } %>
+      </li>
+    </ul>
+  </nav>
+
+  <% @links.each do |link| %>
+    <div class="parent-div">
+      <div class="social-url">
+          <a class="link" href=<%= link.url %>><%= link.title %></a>
+      </div>
+      <%= link_to link_path(link), class: 'show-more-tooltip' do %>
+        <%= image_tag 'show-more.png', alt: 'Image Description', class: 'show-more-img' %>
+        <span class="show-more-tooltiptext">See Details</span>
+      <% end %>
+
+    </div>
+
+<% end %>
+
+  <div class="new-link">
+    <%= link_to " + New Link", new_link_path, class: "new-link-text" %>
+  </div>
+
+</div>

@@ -1,0 +1,41 @@
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
+
+<div class="flash-div">
+  <%= render 'shared/flash' %>
+</div>
+
+<div class="edit-container">
+  <h1>Edit Profile Details</h1>
+  <%= form_with(model: @user, url: user_path(@user), method: :patch, multipart: true) do |f| %>
+    <div class="profile-group">
+      <% if @user.profile_photo.attached? %>
+        <%= image_tag @user.profile_photo, alt: "Profile Photo", class: "profile-photo" %>
+      <% else %>
+        <p>No Profile Photo Available</p>
+      <% end %>
+      <%#= f.file_field :profile_photo, class: "photo-button edit-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "username #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Type in your title..' %>
+      <% if @user.errors.include?(:username) %>
+        <p class="error-message"><%= @user.errors[:username].first %></p>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "email #{'field_with_errors' if @user.errors[:email].any?}", placeholder: 'Enter the URL of your link' %>
+      <% if @user.errors.include?(:email) %>
+        <p class="error-message"><%= @user.errors[:email].first %></p>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :bio %>
+      <%= f.text_area :bio, class: 'bio', placeholder: 'Enter the Description for your link!' %>
+    </div>
+    <%= f.submit "Update Profile", class: 'update-profile-button' %>
+  <% end %>
+</div>

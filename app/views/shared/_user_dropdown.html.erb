@@ -1,0 +1,41 @@
+<div class="row">
+  <div>
+    <div class="dropdown">
+      <a class="rounded-circle " href="#" role="button" id="dropdownUser"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="hamburger ">
+          <img alt="hamburger" src="<%= image_url('hamburger.png') %>" class="rounded-circle">
+        </div>
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownUser">
+        <ul>
+          <li class="menu-item">
+            <%= current_user.username %>
+          </li>
+          <li class="menu-item">
+            <h6><%= current_user.email %></h6>
+          </li>
+          <li class="separator">
+
+          </li>
+          <li class="menu-item">
+            <img src="<%= image_url('profile.png') %>" class="icons"/>
+            <%= link_to 'Profile', user_path(current_user), class: 'link-to' %>
+          </li>
+          <% if current_user.admin? %>
+            <li class="menu-item">
+              <img src="<%= image_url('users.png') %>" class="icons"/>
+              <%= link_to 'All Users', view_user_path(current_user.id), class: 'link-to' %>
+            </li>
+          <% end %>
+          <li class="menu-item">
+            <img src="<%= image_url('logout.png') %>", class="icons"/>
+            <%= button_to 'Logout', logout_path, method: :delete, class: 'logout link-to' %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
