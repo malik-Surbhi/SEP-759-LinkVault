@@ -13,7 +13,7 @@ Role.destroy_all
 #Create an admin user
 admin = User.create!(
   username: 'admin_user',
-  email: 'admin_user@example.com',
+  email: 'admin_user@gmail.com',
   password: '1234',
   password_confirmation: '1234',
   bio: 'Hi this is admin and I have the admin rights of this app'
