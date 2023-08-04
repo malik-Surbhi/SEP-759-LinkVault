@@ -7,7 +7,7 @@ class LinksController < ApplicationController
     if params[:like_status] == "liked"
       @links = current_user.likes.map(&:link)
     elsif params[:like_status] == "not_liked"
-      @links = Link.where.not(id: current_user.likes.pluck(:link_id))
+      @links = current_user.links.where.not(id: current_user.likes.pluck(:link_id))
     else
       @links = current_user.links.all
     end
