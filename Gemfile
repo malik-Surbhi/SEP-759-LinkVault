@@ -66,6 +66,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem "aws-sdk-s3", require: false
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
