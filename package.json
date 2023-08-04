@@ -1,0 +1,7 @@
+{
+  "name": "link_test",
+  "version": "1.0.0",
+  "dependencies": {
+    "@rails/activestorage": "^7.0.6"
+  }
+}

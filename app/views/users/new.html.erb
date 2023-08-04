@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
           <%= f.label :profile_photo, "Upload Profile Photo" %>
-          <%= f.file_field :profile_photo, class: 'photo-button register-input' %>
+          <%= f.file_field :profile_photo, direct_upload: true, class: 'photo-button register-input' %>
         </div>
         <%= f.submit "Register", class: 'register-button' %>
       <% end %>
