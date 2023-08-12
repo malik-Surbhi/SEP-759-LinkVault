@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem "httparty"
 
+gem 'devise', require: 'devise'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # devise_for :views
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new', as: 'login'
   delete '/logout' => 'sessions#destroy', as: 'logout'
