@@ -25,17 +25,17 @@ class UsersController < Devise::RegistrationsController
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      # User registration successful, redirect to a different page or show a flash message
-      redirect_to login_path, notice: 'User registration successful!'
-    else
-      # If user creation fails, render the new user page again to show the errors
-      render :new
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #
+  #   if @user.save
+  #     # User registration successful, redirect to a different page or show a flash message
+  #     redirect_to login_path, notice: 'User registration successful!'
+  #   else
+  #     # If user creation fails, render the new user page again to show the errors
+  #     render :new
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])

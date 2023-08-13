@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def ensure_login
-    redirect_to login_path unless session[:user_id]
+    redirect_to new_user_session_path unless session[:user_id]
   end
 
   def logged_in?
@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :password_confirmation, :bio, :email, :profile_photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :bio])
   end
 
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     resources :users
     get 'users/:id/view', to: 'users#view', as: 'view_user'
+    patch 'users/:user_id/update_role', to: 'users#update_role', as: 'update_role_user'
   end
 
   resources :links do
@@ -12,10 +13,6 @@ Rails.application.routes.draw do
   end
 
   get 'liked_links', to: 'likes#liked_links', as: :liked_links
-
-  # get 'users/:id/view', to: 'users#view', as: 'view_user'
-  patch 'users/:user_id/update_role', to: 'users#update_role', as: 'update_role_user'
-
 
   # devise_for  :users, controllers: {
   #   registrations: 'users/registrations' # Adjust the scope as needed
