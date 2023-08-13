@@ -22,13 +22,14 @@ Rails.application.routes.draw do
   root "links#index"
 
   #For the APIs
-  # namespace :api, defaults: { format: 'json' } do
-  #     mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-  #       sessions: 'users/sessions',
-  #       registrations: 'users/registrations'
-  #     }
-  #     resources :links
-  # end
+  namespace :api, defaults: { format: 'json' } do
+      mount_devise_token_auth_for 'User', at: 'auth'
+      # , controllers: {
+        # sessions: 'users/sessions',
+        # registrations: 'users/registrations'
+      # }
+      # resources :links
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
