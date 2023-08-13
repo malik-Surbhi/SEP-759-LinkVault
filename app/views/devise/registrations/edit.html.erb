@@ -1,43 +1,76 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<header class="header">
+  <%= link_to "Home", links_path, class: "home-link" %>
+  <%= render 'shared/user_dropdown' %>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= render 'shared/flash' %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="edit-container">
+  <h1>Edit Profile Details</h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <div class="profile-group">
+      <% if @user.profile_photo.attached? %>
+        <%= image_tag @user.profile_photo, alt: "Profile Photo", class: "profile-photo" %>
+      <% else %>
+        <p>No Profile Photo Available</p>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "username #{'field_with_errors' if @user.errors[:username].any?}", placeholder: 'Type in your title..' %>
+      <% if @user.errors.include?(:username) %>
+        <p class="error-message"><%= @user.errors[:username].first %></p>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "email #{'field_with_errors' if @user.errors[:email].any?}", placeholder: 'Enter the URL of your link' %>
+      <% if @user.errors.include?(:email) %>
+        <p class="error-message"><%= @user.errors[:email].first %></p>
+      <% end %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :bio %>
+      <%= f.text_area :bio, class: 'bio', placeholder: 'Enter the Description for your link!' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update Profile", class: 'update-profile-button' %>
+    </div>
+  <% end %>
+</div>
 
 <h3>Cancel my account</h3>
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<%#= link_to "Back", :back %>

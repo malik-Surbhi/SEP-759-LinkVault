@@ -33,5 +33,21 @@ module LinkTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # config.to_prepare do
+    #   DeviseController.respond_to :html, :json
+    #   ActionController::Base.skip_before_action :verify_authenticity_token, if: -> { controller_path.start_with?('api/') }
+    # end
+
+
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*',
+    #              headers: :any,
+    #              expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+    #              methods: [:get, :post, :options, :delete, :put]
+    #   end
+    # end
   end
 end

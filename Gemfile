@@ -30,6 +30,9 @@ gem "jbuilder"
 gem "httparty"
 
 gem 'devise', require: 'devise'
+# gem 'devise_token_auth'
+
+# gem 'omniauth', '~> 1.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -69,6 +72,8 @@ group :production do
 end
 
 gem "aws-sdk-s3", require: false
+
+gem 'rack-cors', :require => 'rack/cors'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

@@ -1,5 +1,7 @@
-class UsersController < ApplicationController
-  skip_before_action :ensure_login, only: [:new, :create]
+class UsersController < Devise::RegistrationsController
+  # skip_before_action :ensure_login, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :configure_account_update_params, only: [:update]
   before_action :require_admin, only: [:view]
 
   def index
@@ -96,6 +98,10 @@ class UsersController < ApplicationController
   def require_admin
     admin_role = Role.find_by(name: 'admin')
     redirect_to root_path unless current_user.user_roles.exists?(role: admin_role)
+  end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :bio, :profile_photo])
   end
 
 end

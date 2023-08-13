@@ -1,5 +1,14 @@
 class User < ApplicationRecord
-  has_secure_password
+            # Include default devise modules.
+            devise :database_authenticatable, :registerable,
+                    :recoverable, :rememberable, :validatable
+            # include DeviseTokenAuth::Concerns::User
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  # has_secure_password
   has_one_attached :profile_photo
   after_create :assign_default_role
 
