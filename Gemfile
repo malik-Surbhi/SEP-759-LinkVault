@@ -30,7 +30,7 @@ gem "jbuilder"
 gem "httparty"
 
 gem 'devise', require: 'devise'
-# gem 'devise_token_auth'
+gem 'devise_token_auth'
 
 # gem 'omniauth', '~> 1.0'
 
