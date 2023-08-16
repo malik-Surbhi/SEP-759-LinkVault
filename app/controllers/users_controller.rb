@@ -73,6 +73,8 @@ class UsersController < Devise::RegistrationsController
     else
       user.user_roles.create(role: Role.find_by(name: 'admin'))
       notice_message = "#{user.username} has been made an admin."
+
+      UserMailer.role_updated_notification(user).deliver_now
     end
 
     redirect_to view_user_path(admin.id), notice: notice_message

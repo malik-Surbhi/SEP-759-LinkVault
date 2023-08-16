@@ -59,6 +59,23 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',       # Mailgun SMTP server
+    port: 587,                         # Port for SMTP
+    domain: 'sandbox962833268ac54d70b215b57bb87039a4.mailgun.org',         # Your Mailgun domain
+    user_name: 'postmaster@sandbox962833268ac54d70b215b57bb87039a4.mailgun.org', # Mailgun SMTP username
+    password: '123456', # Mailgun SMTP password
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
+
+
   # resource '*', headers: :any,
   #          expose: %w(etag access-token uid expiry token-type client Rate-Search-Uuid),
   #          methods: [:get, :post, :delete, :put, :patch, :options, :head]

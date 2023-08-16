@@ -1,7 +1,4 @@
 class User < ApplicationRecord
-            # Include default devise modules.
-            devise :database_authenticatable, :registerable,
-                    :recoverable, :rememberable, :validatable
             # include DeviseTokenAuth::Concerns::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,7 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_secure_password
+  before_create :generate_api_token
   has_one_attached :profile_photo
+
   after_create :assign_default_role
 
   has_many :links, dependent: :destroy
@@ -39,6 +38,12 @@ class User < ApplicationRecord
 
   def admin?
     user_roles.exists?(role: Role.find_by(name: 'admin'))
+  end
+
+  private
+
+  def generate_api_token
+    self.api_token = SecureRandom.uuid
   end
 
 end

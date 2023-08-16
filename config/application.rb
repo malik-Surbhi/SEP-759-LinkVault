@@ -33,6 +33,8 @@ module LinkTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.autoload_paths << "#{Rails.root}/app/controllers"
+    config.autoload_paths << "#{Rails.root}/app/strategies"
 
     # config.to_prepare do
     #   DeviseController.respond_to :html, :json

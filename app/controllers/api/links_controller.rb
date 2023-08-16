@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class Api::LinksController < ApiController
+class Api::LinksController < Api::AuthApiController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     links = current_user.links
@@ -18,11 +18,21 @@ class Api::LinksController < ApiController
     end
   end
 
+  def show
+    # warden.authenticate!(:api_token)
+    link = Link.find(params[:id])
+    if link
+      render json: link
+    else
+      render json: {error: 'No Link found'}, status: 404
+    end
+  end
+
   # Other actions as needed
 
   private
 
   def link_params
-    params.require(:link).permit(:title, :url)
+    params.require(:link).permit(:title, :url, :description)
   end
 end

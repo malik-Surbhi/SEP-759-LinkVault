@@ -13,14 +13,14 @@ amazon_development:
  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
  region: us-east-2
- bucket: link-vault-app-bucket
+ bucket: linkvault-devise-bucket
 
 amazon_production:
   service: S3
   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region: us-east-2
-  bucket: link-vault-app-bucket
+  bucket: linkvault-devise-bucket
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
