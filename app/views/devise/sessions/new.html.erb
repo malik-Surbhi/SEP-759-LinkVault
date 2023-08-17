@@ -4,19 +4,8 @@
     <div class="login-content">
       <h1 class="welcome-text">Welcome To LinkVault</h1>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <!--    <%#= f.label :username %><br />-->
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email', class: 'input-field' %>
-        <!--  </div>-->
-
-        <!--  <div class="field">-->
-        <!--    <%#= f.label :password %><br />-->
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'input-field' %>
-        <!--  </div>-->
-
-          <%# if devise_mapping.rememberable? %>
-              <%#= f.check_box :remember_me %>
-              <%#= f.label :remember_me %>
-          <%# end %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'input-field' %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'input-field' %>
           <%= link_to "Register", new_registration_path(resource_name), class: 'register-link' %>
           <div class="actions">
             <%= f.submit "Log in" , class: 'login-button'%>
@@ -26,19 +15,3 @@
   </div>
 </div>
 
-<%#= render "devise/shared/links" %>
-
-<!--<div class="container">-->
-  <%#= render 'shared/flash' %>
-<!--  <div class="login-container">-->
-<!--    <div class="login-content">-->
-<!--      <h1 class="welcome-text">Welcome To LinkVault</h1>-->
-      <%#= form_with(model: User.new, url: sessions_path) do |f| %>
-        <%#= f.text_field :username, placeholder: 'Username', class: 'input-field' %>
-        <%#= f.password_field :password, placeholder: 'Password', class: 'input-field' %>
-        <%#= link_to 'Register', register_path, class: 'register-link' %>
-        <%#= f.submit "Login", class: 'login-button' %>
-      <%# end %>
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

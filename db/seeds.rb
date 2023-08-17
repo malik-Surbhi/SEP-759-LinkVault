@@ -12,10 +12,10 @@ Role.destroy_all
 
 #Create an admin user
 admin = User.create!(
-  username: 'admin_user',
-  email: 'admin_user@gmail.com',
-  password: '1234',
-  password_confirmation: '1234',
+  username: 'admin',
+  email: 'admin@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
   bio: 'Hi this is admin and I have the admin rights of this app'
 )
 
@@ -25,15 +25,17 @@ admin.profile_photo.attach(io: File.open(profile_photo_path), filename: 'admin_p
 
 #Creating more users
 users = User.create! [
-                       {username: 'Sumalik', password: '1234', password_confirmation: '1234', email: 'surbhimalik@gmail.com', bio: 'Hey, this is Surbhi and this is my LinkTree'},
-                       {username: 'Tester', password: '1234', password_confirmation: '1234', email: 'tester@gmail.com', bio: 'Hey, this is TestUser and this is my LinkTree'},
-                       {username: 'Inertia', password: '1234', password_confirmation: '1234', email: 'inertia@gmail.com', bio: 'Hey, this is Inertia and I enjoy reading books'},
+                       {username: 'Sumalik', password: '123456', password_confirmation: '123456', email: 'surbhimalik@gmail.com', bio: 'Hey, this is Surbhi and this is my LinkTree'},
+                       {username: 'Tester', password: '123456', password_confirmation: '123456', email: 'tester@gmail.com', bio: 'Hey, this is TestUser and this is my LinkTree'},
+                       {username: 'Inertia', password: '123456', password_confirmation: '123456', email: 'inertia@gmail.com', bio: 'Hey, this is Inertia and I enjoy reading books'},
+                       {username: 'LinkVault', password: '123456', password_confirmation: '123456', email: 'linkvaultapp6@gmail.com', bio: 'Hey, this is LinkVault and this is my gmail account'}
                      ]
 
 #Adding profile photos to the two users
 sumalik = users[0];
 tester = users[1];
 inertia = users[2]
+linkvaultapp = users[3]
 
 surbhi_photo_path = Rails.root.join('app', 'assets', 'images', '1.png')
 sumalik.profile_photo.attach(io: File.open(surbhi_photo_path), filename: '1.png')
@@ -43,6 +45,9 @@ tester.profile_photo.attach(io: File.open(testUser_photo_path), filename: '13.pn
 
 inertia_photo_path = Rails.root.join('app', 'assets', 'images', '3.png')
 inertia.profile_photo.attach(io: File.open(inertia_photo_path), filename: '3.png')
+
+linkvaultapp_photo_path = Rails.root.join('app', 'assets', 'images', 'linkvault.png')
+linkvaultapp.profile_photo.attach(io: File.open(linkvaultapp_photo_path), filename: 'linkvault.png')
 
 
 #Adding Links to users
@@ -54,7 +59,8 @@ links = Link.create! [
                        {title: 'Youtube Vlog', url: 'https://youtube.com/admin', description: 'This is the link for my Youtube channel ',  user_id: admin.id},
                        {title: 'Medium Post', url: 'https://medium.com/new_post', description: 'This is the link for my Medium post on the latest dev work ',  user_id: admin.id},
                        {title: 'Reddit discussion', url: 'https://reddit.com/findings', description: 'Linking the latest reddit post in which we had discussion ',  user_id: inertia.id},
-                       {title: 'My Website', url: 'https://godaddy.com/christine', description: 'Welcome to my Website that I created recently! ',  user_id: inertia.id}
+                       {title: 'My Website', url: 'https://godaddy.com/christine', description: 'Welcome to my Website that I created recently! ',  user_id: inertia.id},
+                       {title: 'LinkVault App', url: 'https://linkvaultapp.com/link', description: 'Welcome to my Website that I created recently! ',  user_id: linkvaultapp.id}
                      ]
 
 #Assigning roles to users
@@ -72,6 +78,7 @@ UserRole.create! [{user_id: inertia.id, role_id: role.id}]
 roleUser = Role.find_by name: 'user'
 UserRole.create! [{user_id: sumalik.id, role_id: roleUser.id}]
 UserRole.create! [{user_id: tester.id, role_id: roleUser.id}]
+UserRole.create! [{user_id: linkvaultapp.id, role_id: roleUser.id}]
 
 
 

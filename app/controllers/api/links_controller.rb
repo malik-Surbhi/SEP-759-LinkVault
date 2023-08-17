@@ -6,7 +6,8 @@ class Api::LinksController < Api::AuthApiController
 
   def index
     links = current_user.links
-    render json: links
+    rendered_links = links.map { |link| { id: link.id, url: link.url, title: link.title } }
+    render json: rendered_links
   end
 
   def create
@@ -28,7 +29,26 @@ class Api::LinksController < Api::AuthApiController
     end
   end
 
-  # Other actions as needed
+  def update
+    link = current_user.links.find(params[:id])
+
+    if link.update(link_params)
+      render json: link, status: :ok
+    else
+      render json: link.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    link = current_user.links.find(params[:id])
+
+    if link.destroy
+      render json: { message: "Link deleted successfully" }, status: :ok
+    else
+      render json: { error: "Failed to delete link" }, status: :unprocessable_entity
+    end
+  end
+
 
   private
 

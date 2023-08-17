@@ -33,19 +33,23 @@
     </ul>
   </nav>
 
-  <% @links.each do |link| %>
-    <div class="parent-div">
-      <div class="social-url">
-          <a class="link" href=<%= link.url %>><%= link.title %></a>
+  <% if @no_links_message.present? %>
+    <p class="no-links-message"><%= @no_links_message %></p>
+  <% else %>
+    <% @links.each do |link| %>
+      <div class="parent-div">
+        <div class="social-url">
+            <a class="link" href=<%= link.url %>><%= link.title %></a>
+        </div>
+        <%= link_to link_path(link), class: 'show-more-tooltip' do %>
+          <%= image_tag 'show-more.png', alt: 'Image Description', class: 'show-more-img' %>
+          <span class="show-more-tooltiptext">See Details</span>
+        <% end %>
+
       </div>
-      <%= link_to link_path(link), class: 'show-more-tooltip' do %>
-        <%= image_tag 'show-more.png', alt: 'Image Description', class: 'show-more-img' %>
-        <span class="show-more-tooltiptext">See Details</span>
-      <% end %>
 
-    </div>
-
-<% end %>
+    <% end %>
+  <% end %>
 
   <div class="new-link">
     <%= link_to " + New Link", new_link_path, class: "new-link-text" %>
